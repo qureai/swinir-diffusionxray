@@ -1,0 +1,64 @@
+{
+  "os": "Linux-5.15.0-130-generic-x86_64-with-glibc2.35",
+  "python": "CPython 3.9.21",
+  "startedAt": "2025-01-26T14:48:41.557107Z",
+  "args": [
+    "--opt",
+    "options/swinir/train_swinir_sr_classical.json"
+  ],
+  "program": "/raid/data_transfer/KAIR/main_train_psnr.py",
+  "codePath": "main_train_psnr.py",
+  "git": {
+    "remote": "https://github.com/cszn/KAIR.git",
+    "commit": "fc1732f4a4514e42ce15e5b3a1e18c828af47a1e"
+  },
+  "email": "aryangoyal.iitb@gmail.com",
+  "root": "/raid/data_transfer/KAIR",
+  "host": "qrnd8.internal.qure.ai",
+  "executable": "/home/ubuntu/miniconda3/envs/swinfir/bin/python3",
+  "codePathLocal": "main_train_psnr.py",
+  "cpu_count": 64,
+  "cpu_count_logical": 128,
+  "gpu": "NVIDIA L40S",
+  "gpu_count": 4,
+  "disk": {
+    "/": {
+      "total": "940534845440",
+      "used": "404814929920"
+    }
+  },
+  "memory": {
+    "total": "1081663647744"
+  },
+  "cpu": {
+    "count": 64,
+    "countLogical": 128
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA L40S",
+      "memoryTotal": "48305799168",
+      "cudaCores": 18176,
+      "architecture": "Ada"
+    },
+    {
+      "name": "NVIDIA L40S",
+      "memoryTotal": "48305799168",
+      "cudaCores": 18176,
+      "architecture": "Ada"
+    },
+    {
+      "name": "NVIDIA L40S",
+      "memoryTotal": "48305799168",
+      "cudaCores": 18176,
+      "architecture": "Ada"
+    },
+    {
+      "name": "NVIDIA L40S",
+      "memoryTotal": "48305799168",
+      "cudaCores": 18176,
+      "architecture": "Ada"
+    }
+  ],
+  "cudaVersion": "12.2"
+}

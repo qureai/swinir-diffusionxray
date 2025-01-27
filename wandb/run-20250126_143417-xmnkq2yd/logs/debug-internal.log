@@ -1,0 +1,10 @@
+{"time":"2025-01-26T14:34:17.406656443Z","level":"INFO","msg":"stream: starting","core version":"0.19.4","symlink path":"/raid/data_transfer/KAIR/wandb/run-20250126_143417-xmnkq2yd/logs/debug-core.log"}
+{"time":"2025-01-26T14:34:17.523321097Z","level":"INFO","msg":"created new stream","id":"xmnkq2yd"}
+{"time":"2025-01-26T14:34:17.523362082Z","level":"INFO","msg":"stream: started","id":"xmnkq2yd"}
+{"time":"2025-01-26T14:34:17.523429382Z","level":"INFO","msg":"writer: Do: started","stream_id":"xmnkq2yd"}
+{"time":"2025-01-26T14:34:17.523552757Z","level":"INFO","msg":"sender: started","stream_id":"xmnkq2yd"}
+{"time":"2025-01-26T14:34:17.523685515Z","level":"INFO","msg":"handler: started","stream_id":"xmnkq2yd"}
+{"time":"2025-01-26T14:34:17.948937986Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-26T14:39:18.196236243Z","level":"INFO","msg":"stream: closing","id":"xmnkq2yd"}
+{"time":"2025-01-26T14:39:18.196280724Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-26T14:39:18.19752522Z","level":"INFO","msg":"Stopped system monitor"}

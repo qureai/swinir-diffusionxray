@@ -7,6 +7,8 @@ import logging
 from torch.utils.data import DataLoader
 from torch.utils.data.distributed import DistributedSampler
 import torch
+import wandb
+
 
 from utils import utils_logger
 from utils import utils_image as util
@@ -29,6 +31,7 @@ from models.select_model import define_Model
 '''
 
 
+
 def main(json_path='options/train_msrresnet_psnr.json'):
 
     '''
@@ -45,6 +48,8 @@ def main(json_path='options/train_msrresnet_psnr.json'):
 
     opt = option.parse(parser.parse_args().opt, is_train=True)
     opt['dist'] = parser.parse_args().dist
+    wandb.init(project="swinir-300k-scractch-26jan", name="swinir-300k-scractch-26jan")
+
 
     # ----------------------------------------
     # distributed settings
@@ -60,6 +65,11 @@ def main(json_path='options/train_msrresnet_psnr.json'):
     # update opt
     # ----------------------------------------
     # -->-->-->-->-->-->-->-->-->-->-->-->-->-
+    
+    
+    #checkpoint = torch.load("/raid/data_transfer/KAIR/model_zoo/003_realSR_BSRGAN_DFO_s64w8_SwinIR-M_x2_PSNR-with-dict-keys-params-and-params_ema.pth", map_location=torch.device('cpu'))
+    #print("checkpoint-here")
+    #print(checkpoint.keys())
     init_iter_G, init_path_G = option.find_last_checkpoint(opt['path']['models'], net_type='G')
     init_iter_E, init_path_E = option.find_last_checkpoint(opt['path']['models'], net_type='E')
     opt['path']['pretrained_netG'] = init_path_G
@@ -115,6 +125,7 @@ def main(json_path='options/train_msrresnet_psnr.json'):
     # ----------------------------------------
     for phase, dataset_opt in opt['datasets'].items():
         if phase == 'train':
+            print(dataset_opt)
             train_set = define_Dataset(dataset_opt)
             train_size = int(math.ceil(len(train_set) / dataset_opt['dataloader_batch_size']))
             if opt['rank'] == 0:
@@ -194,13 +205,21 @@ def main(json_path='options/train_msrresnet_psnr.json'):
                 for k, v in logs.items():  # merge log information into message
                     message += '{:s}: {:.3e} '.format(k, v)
                 logger.info(message)
+                wandb.log({k: v for k, v in logs.items()})
+                logger.info(message)
+                
 
             # -------------------------------
             # 5) save model
             # -------------------------------
-            if current_step % opt['train']['checkpoint_save'] == 0 and opt['rank'] == 0:
+            # if current_step % opt['train']['checkpoint_save'] == 0 and opt['rank'] == 0:
+            #     logger.info('Saving the model.')
+            #     model.save(current_step)
+
+            if epoch % 10 == 0 and epoch != 0 and opt['rank'] == 0:
                 logger.info('Saving the model.')
                 model.save(current_step)
+
 
             # -------------------------------
             # 6) testing
@@ -244,6 +263,6 @@ def main(json_path='options/train_msrresnet_psnr.json'):
 
                 # testing log
                 logger.info('<epoch:{:3d}, iter:{:8,d}, Average PSNR : {:<.2f}dB\n'.format(epoch, current_step, avg_psnr))
-
+                wandb.log({"avg_psnr": avg_psnr})
 if __name__ == '__main__':
     main()

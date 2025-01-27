@@ -1,0 +1,154 @@
+_wandb:
+    value:
+        cli_version: 0.19.4
+        m: []
+        python_version: 3.9.21
+        t:
+            "1":
+                - 1
+                - 55
+            "2":
+                - 1
+                - 41
+                - 49
+                - 55
+                - 63
+            "3":
+                - 13
+                - 16
+                - 23
+                - 55
+            "4": 3.9.21
+            "5": 0.19.4
+            "8":
+                - 5
+            "12": 0.19.4
+            "13": linux-x86_64
+datasets:
+    value:
+        test:
+            dataroot_H: /raid/data_transfer/300k_hr
+            dataroot_L: null
+            dataset_type: sr
+            n_channels: 1
+            name: test_dataset
+            phase: test
+            scale: 2
+        train:
+            H_size: 96
+            dataloader_batch_size: 200
+            dataloader_num_workers: 16
+            dataloader_shuffle: true
+            dataroot_H: /raid/data_transfer/300k_hr
+            dataroot_L: null
+            dataset_type: sr
+            n_channels: 1
+            name: train_dataset
+            phase: train
+            scale: 2
+dist:
+    value: false
+find_unused_parameters:
+    value: false
+gpu_ids:
+    value:
+        - 0
+        - 1
+        - 2
+        - 3
+is_train:
+    value: true
+merge_bn:
+    value: false
+merge_bn_startpoint:
+    value: -1
+model:
+    value: plain
+n_channels:
+    value: 1
+netG:
+    value:
+        depths:
+            - 6
+            - 6
+            - 6
+            - 6
+            - 6
+            - 6
+        embed_dim: 180
+        img_range: 1
+        img_size: 48
+        in_chans: 3
+        init_type: default
+        mlp_ratio: 2
+        net_type: swinir
+        num_heads:
+            - 6
+            - 6
+            - 6
+            - 6
+            - 6
+            - 6
+        resi_connection: 1conv
+        scale: 2
+        upsampler: pixelshuffle
+        upscale: 2
+        window_size: 8
+num_gpu:
+    value: 4
+opt_path:
+    value: options/swinir/train_swinir_sr_classical.json
+path:
+    value:
+        images: superresolution/swinir_sr_classical_patch48_x2/images
+        log: superresolution/swinir_sr_classical_patch48_x2
+        models: superresolution/swinir_sr_classical_patch48_x2/models
+        options: superresolution/swinir_sr_classical_patch48_x2/options
+        pretrained_netE: null
+        pretrained_netG: null
+        root: superresolution
+        task: superresolution/swinir_sr_classical_patch48_x2
+rank:
+    value: 0
+scale:
+    value: 2
+task:
+    value: swinir_sr_classical_patch48_x2
+train:
+    value:
+        E_decay: 0.999
+        E_param_strict: true
+        F_feature_layer: 34
+        F_lossfn_type: l1
+        F_use_input_norm: true
+        F_use_range_norm: false
+        F_weights: 1
+        G_lossfn_type: l1
+        G_lossfn_weight: 1
+        G_optimizer_betas:
+            - 0.9
+            - 0.999
+        G_optimizer_clipgrad: null
+        G_optimizer_lr: 0.0002
+        G_optimizer_reuse: true
+        G_optimizer_type: adam
+        G_optimizer_wd: 0
+        G_param_strict: true
+        G_regularizer_clipstep: null
+        G_regularizer_orthstep: null
+        G_scheduler_gamma: 0.5
+        G_scheduler_milestones:
+            - 250000
+            - 400000
+            - 450000
+            - 475000
+            - 500000
+        G_scheduler_restart_weights: 1
+        G_scheduler_type: MultiStepLR
+        checkpoint_print: 200
+        checkpoint_save: 5000
+        checkpoint_test: 5000
+use_static_graph:
+    value: false
+world_size:
+    value: 1

@@ -1,7 +1,7 @@
 {
   "task": "swinir_sr_classical_patch48_x2"     //  classical image sr for x2/x3/x4/x8. root/task/images-models-options
   , "model": "plain" // "plain" | "plain2" if two inputs
-  , "gpu_ids": [0,1,2,3,4,5,6,7]
+  , "gpu_ids": [0,1,2,3]
   , "dist": true
 
   , "scale": 2       // 2 | 3 | 4 | 8
@@ -17,20 +17,20 @@
     "train": {
       "name": "train_dataset"           // just name
       , "dataset_type": "sr"         // "dncnn" | "dnpatch" | "fdncnn" | "ffdnet" | "sr" | "srmd" | "dpsr" | "plain" | "plainpatch" | "jpeg"
-      , "dataroot_H": "trainsets/trainH"// path of H training dataset. DIV2K (800 training images)
-      , "dataroot_L": "trainsets/trainL"              // path of L training dataset
+      , "dataroot_H": "/raid/data_transfer/300k_hr"// path of H training dataset. DIV2K (800 training images)
+      , "dataroot_L": null         // path of L training dataset
 
       , "H_size": 96                   // 96/144|192/384 | 128/192/256/512. LR patch size is set to 48 or 64 when compared with RCAN or RRDB.
 
       , "dataloader_shuffle": true
       , "dataloader_num_workers": 16
-      , "dataloader_batch_size": 32      // batch size 1 | 16 | 32 | 48 | 64 | 128. Total batch size =4x8=32 in SwinIR
+      , "dataloader_batch_size": 200      // batch size 1 | 16 | 32 | 48 | 64 | 128. Total batch size =4x8=32 in SwinIR
     }
     , "test": {
       "name": "test_dataset"            // just name
       , "dataset_type": "sr"         // "dncnn" | "dnpatch" | "fdncnn" | "ffdnet" | "sr" | "srmd" | "dpsr" | "plain" | "plainpatch" | "jpeg"
-      , "dataroot_H": "testsets/Set5/HR"  // path of H testing dataset
-      , "dataroot_L": "testsets/Set5/LR_bicubic/X2"              // path of L testing dataset
+      , "dataroot_H": "/raid/data_transfer/300k_hr"  // path of H testing dataset
+      , "dataroot_L": null              // path of L testing dataset
 
     }
   }

@@ -1,0 +1,7 @@
+{"time":"2025-01-26T14:41:41.251091017Z","level":"INFO","msg":"stream: starting","core version":"0.19.4","symlink path":"/raid/data_transfer/KAIR/wandb/run-20250126_144141-whdqsru6/logs/debug-core.log"}
+{"time":"2025-01-26T14:41:41.366743031Z","level":"INFO","msg":"created new stream","id":"whdqsru6"}
+{"time":"2025-01-26T14:41:41.366785259Z","level":"INFO","msg":"stream: started","id":"whdqsru6"}
+{"time":"2025-01-26T14:41:41.366854636Z","level":"INFO","msg":"writer: Do: started","stream_id":"whdqsru6"}
+{"time":"2025-01-26T14:41:41.366999724Z","level":"INFO","msg":"sender: started","stream_id":"whdqsru6"}
+{"time":"2025-01-26T14:41:41.367186589Z","level":"INFO","msg":"handler: started","stream_id":"whdqsru6"}
+{"time":"2025-01-26T14:41:41.789557076Z","level":"INFO","msg":"Starting system monitor"}

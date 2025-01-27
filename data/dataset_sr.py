@@ -32,6 +32,16 @@ class DatasetSR(data.Dataset):
         if self.paths_L and self.paths_H:
             assert len(self.paths_L) == len(self.paths_H), 'L/H mismatch - {}, {}.'.format(len(self.paths_L), len(self.paths_H))
 
+    def convert_to_grayscale(self, img):
+        """
+        Convert an RGB image to grayscale by averaging the channels.
+        """
+        if img.ndim == 3 and img.shape[2] == 3:  # Check if the image has 3 channels (RGB)
+            img = img.mean(axis=2, keepdims=True)  # Average across the RGB channels
+        return img
+
+
+    
     def __getitem__(self, index):
 
         L_path = None
@@ -41,6 +51,8 @@ class DatasetSR(data.Dataset):
         H_path = self.paths_H[index]
         img_H = util.imread_uint(H_path, self.n_channels)
         img_H = util.uint2single(img_H)
+        img_H = self.convert_to_grayscale(img_H)
+        
 
         # ------------------------------------
         # modcrop
@@ -57,6 +69,7 @@ class DatasetSR(data.Dataset):
             L_path = self.paths_L[index]
             img_L = util.imread_uint(L_path, self.n_channels)
             img_L = util.uint2single(img_L)
+            img_L = self.convert_to_grayscale(img_L)
 
         else:
             # --------------------------------
@@ -64,6 +77,7 @@ class DatasetSR(data.Dataset):
             # --------------------------------
             H, W = img_H.shape[:2]
             img_L = util.imresize_np(img_H, 1 / self.sf, True)
+            img_L = self.convert_to_grayscale(img_L)
 
         # ------------------------------------
         # if train, get L/H patch pair

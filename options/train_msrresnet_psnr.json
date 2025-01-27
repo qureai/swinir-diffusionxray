@@ -4,8 +4,8 @@
   , "gpu_ids": [0]
   , "dist": true
 
-  , "scale": 4       // broadcast to "netG" if SISR
-  , "n_channels": 3  // broadcast to "datasets", 1 for grayscale, 3 for color
+  , "scale": 2       // broadcast to "netG" if SISR
+  , "n_channels": 1  // broadcast to "datasets", 1 for grayscale, 3 for color
   , "sigma": 0       // 15, 25, 50 for DnCNN | [0, 75] for FDnCNN and FFDNet
   , "sigma_test": 0  // 15, 25, 50 for DnCNN, FDnCNN and FFDNet, 0 for SR
 
@@ -14,16 +14,16 @@
 
   , "path": {
     "root": "superresolution"      // "denoising" | "superresolution"
-    , "pretrained_netG": null      // path of pretrained model
-    , "pretrained_netE": null      // path of pretrained model
+    , "pretrained_netG": "/raid/data_transfer/KAIR/model_zoo/003_realSR_BSRGAN_DFO_s64w8_SwinIR-M_x2_PSNR-with-dict-keys-params-and-params_ema.pth"      // path of pretrained model
+    , "pretrained_netE": "/raid/data_transfer/KAIR/model_zoo/003_realSR_BSRGAN_DFO_s64w8_SwinIR-M_x2_PSNR-with-dict-keys-params-and-params_ema.pth"     // path of pretrained model
   }
 
   , "datasets": {
     "train": {
       "name": "train_dataset"           // just name
       , "dataset_type": "sr"            // "dncnn" | "dnpatch" | "fdncnn" | "ffdnet" | "sr" | "srmd" | "dpsr" | "plain" | "plainpatch"
-      , "dataroot_H": "trainsets/trainH"// path of H training dataset
-      , "dataroot_L": null              // path of L training dataset
+      , "dataroot_H": "/raid/data_transfer/300k_hr"// path of H training dataset
+      , "dataroot_L": "/raid/data_transfer/300k_lr"             // path of L training dataset
       , "H_size": 96                    // patch size 40 | 64 | 96 | 128 | 192
       , "dataloader_shuffle": true
       , "dataloader_num_workers": 8
@@ -32,8 +32,8 @@
     , "test": {
       "name": "test_dataset"            // just name
       , "dataset_type": "sr"            // "dncnn" | "dnpatch" | "fdncnn" | "ffdnet" | "sr" | "srmd" | "dpsr" | "plain" | "plainpatch"
-      , "dataroot_H": "testsets/set5"  // path of H testing dataset
-      , "dataroot_L": null              // path of L testing dataset
+      , "dataroot_H": "/raid/data_transfer/300k_hr"  // path of H testing dataset
+      , "dataroot_L": "/raid/data_transfer/300k_lr"             // path of L testing dataset
     }
   }
 

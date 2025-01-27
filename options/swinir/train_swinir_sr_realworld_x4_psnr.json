@@ -1,11 +1,11 @@
 {
   "task": "swinir_sr_realworld_x4_psnr"     // real-world image sr. root/task/images-models-options
   , "model": "plain" // "plain" | "plain2" if two inputs
-  , "gpu_ids": [0,1,2,3,4,5,6,7]
+  , "gpu_ids": [0,1,2,3]
   , "dist": true
 
-  , "scale": 4       // broadcast to "datasets"
-  , "n_channels": 3  // broadcast to "datasets", 1 for grayscale, 3 for color
+  , "scale": 2       // broadcast to "datasets"
+  , "n_channels": 1  // broadcast to "datasets", 1 for grayscale, 3 for color
 
   , "path": {
     "root": "superresolution"            // "denoising" | "superresolution" | "dejpeg"
@@ -17,8 +17,8 @@
     "train": {
       "name": "train_dataset"           // just name
       , "dataset_type": "blindsr"         // "dncnn" | "dnpatch" | "fdncnn" | "ffdnet" | "sr" | "srmd" | "dpsr" | "plain" | "plainpatch" | "jpeg"
-      , "dataroot_H": "trainsets/trainH"// path of H training dataset. DIV2K (800 training images) + Flickr2K (2650 images) + + OST (10324 images)
-      , "dataroot_L": null            // path of L training dataset
+      , "dataroot_H": "/raid/data_transfer/300k_hr"// path of H training dataset. DIV2K (800 training images) + Flickr2K (2650 images) + + OST (10324 images)
+      , "dataroot_L": "/raid/data_transfer/300k_lr"           // path of L training dataset
 
       , "degradation_type": "bsrgan"    // "bsrgan" | "bsrgan_plus"
       , "H_size": 256                   // patch_size 256 | 288 | 320
@@ -33,8 +33,8 @@
     , "test": {
       "name": "test_dataset"            // just name
       , "dataset_type": "sr"         // "dncnn" | "dnpatch" | "fdncnn" | "ffdnet" | "sr" | "srmd" | "dpsr" | "plain" | "plainpatch" | "jpeg"
-      , "dataroot_H": "testsets/Set5/HR"  // path of H testing dataset
-      , "dataroot_L": "testsets/Set5/LR_bicubic/X4"              // path of L testing dataset
+      , "dataroot_H": "/raid/data_transfer/300k_hr"  // path of H testing dataset
+      , "dataroot_L": "/raid/data_transfer/300k_lr"              // path of L testing dataset
 
     }
   }

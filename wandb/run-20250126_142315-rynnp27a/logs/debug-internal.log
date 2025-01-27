@@ -1,0 +1,15 @@
+{"time":"2025-01-26T14:23:15.968726825Z","level":"INFO","msg":"stream: starting","core version":"0.19.4","symlink path":"/raid/data_transfer/KAIR/wandb/run-20250126_142315-rynnp27a/logs/debug-core.log"}
+{"time":"2025-01-26T14:23:16.083343209Z","level":"INFO","msg":"created new stream","id":"rynnp27a"}
+{"time":"2025-01-26T14:23:16.083375905Z","level":"INFO","msg":"stream: started","id":"rynnp27a"}
+{"time":"2025-01-26T14:23:16.083452788Z","level":"INFO","msg":"writer: Do: started","stream_id":"rynnp27a"}
+{"time":"2025-01-26T14:23:16.083571479Z","level":"INFO","msg":"sender: started","stream_id":"rynnp27a"}
+{"time":"2025-01-26T14:23:16.083706721Z","level":"INFO","msg":"handler: started","stream_id":"rynnp27a"}
+{"time":"2025-01-26T14:23:16.491431676Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-26T14:23:37.290813787Z","level":"INFO","msg":"stream: closing","id":"rynnp27a"}
+{"time":"2025-01-26T14:23:37.290857226Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-26T14:23:37.292036643Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-26T14:23:38.788258431Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-26T14:23:39.134847138Z","level":"INFO","msg":"handler: closed","stream_id":"rynnp27a"}
+{"time":"2025-01-26T14:23:39.134934071Z","level":"INFO","msg":"writer: Close: closed","stream_id":"rynnp27a"}
+{"time":"2025-01-26T14:23:39.134981717Z","level":"INFO","msg":"sender: closed","stream_id":"rynnp27a"}
+{"time":"2025-01-26T14:23:39.135132282Z","level":"INFO","msg":"stream: closed","id":"rynnp27a"}
